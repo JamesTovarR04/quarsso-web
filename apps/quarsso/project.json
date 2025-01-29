@@ -24,7 +24,7 @@
         ],
         "styles": [
           "apps/quarsso/src/styles.scss",
-          "apps/quarsso/public/scss/style.scss"
+          "libs/shared/material-pro/src/assets/scss/style.scss"
         ],
         "scripts": [],
         "customWebpackConfig": {
