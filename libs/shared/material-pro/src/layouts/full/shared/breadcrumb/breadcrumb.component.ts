@@ -25,7 +25,8 @@ import {
   ApexMarkers,
   NgApexchartsModule,
 } from 'ng-apexcharts';
-import { CoreService } from '@quarsso/shared/services/core.service';
+import { CoreService } from '@quarsso/material-pro/services/core.service';
+import { AppSettings } from '@quarsso/material-pro/config';
 
 export interface BreadcrumbOption {
   series: ApexAxisChartSeries;
@@ -61,7 +62,7 @@ export class AppBreadcrumbComponent {
   // @Input() layout;
   pageInfo: Data = Object.create(null);
 
-  options = this.settings.getOptions();
+  options: AppSettings;
 
   constructor(
     private settings: CoreService,
@@ -69,6 +70,7 @@ export class AppBreadcrumbComponent {
     private activatedRoute: ActivatedRoute,
     private titleService: Title
   ) {
+    this.options = this.settings.getOptions()
     this.breadcrumbOption = {
       series: [
         {

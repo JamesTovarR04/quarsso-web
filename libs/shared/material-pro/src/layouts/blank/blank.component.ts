@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { CoreService } from '@quarsso/shared/services/core.service';
-import { AppSettings } from '@quarsso/shared/config';
-import { MaterialModule } from '@quarsso/shared/material.module';
+import { CoreService } from '@quarsso/material-pro/services/core.service';
+import { AppSettings } from '@quarsso/material-pro/config';
+import { MaterialModule } from '@quarsso/material-pro/material.module';
 
 @Component({
   selector: 'shared-blank',

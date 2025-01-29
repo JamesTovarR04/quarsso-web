@@ -7,9 +7,9 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { MaterialModule } from '@quarsso/shared/material.module';
-import { AppSettings } from '@quarsso/shared/config';
-import { CoreService } from '@quarsso/shared/services/core.service';
+import { MaterialModule } from '@quarsso/material-pro/material.module';
+import { AppSettings } from '@quarsso/material-pro/config';
+import { CoreService } from '@quarsso/material-pro/services/core.service';
 import { TablerIconComponent } from 'angular-tabler-icons';
 
 @Component({
@@ -25,14 +25,15 @@ import { TablerIconComponent } from 'angular-tabler-icons';
 })
 export class CustomizerComponent {
 
-  options = this.settings.getOptions();
-
-
+  options: AppSettings;
 
   @Output() optionsChange = new EventEmitter<AppSettings>();
   hideSingleSelectionIndicator = signal(true);
 
-  constructor(private settings: CoreService) { }
+  constructor(private settings: CoreService) {
+    this.options = this.settings.getOptions();
+  }
+
   setDark() {
     this.settings.setOptions({ theme: 'dark' });
     this.emitOptions();

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MaterialModule } from '@quarsso/shared/material.module';
+import { MaterialModule } from '@quarsso/material-pro/material.module';
 import { TablerIconComponent } from 'angular-tabler-icons';
 
 @Component({

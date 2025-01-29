@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CoreService } from '@quarsso/shared/services/core.service';
+import { AppSettings } from '@quarsso/material-pro/config';
+import { CoreService } from '@quarsso/material-pro/services/core.service';
 
 @Component({
   selector: 'shared-branding',
@@ -19,7 +20,9 @@ import { CoreService } from '@quarsso/shared/services/core.service';
   `,
 })
 export class BrandingComponent {
-  options = this.settings.getOptions();
+  options: AppSettings;
 
-  constructor(private settings: CoreService) {}
+  constructor(private settings: CoreService) {
+    this.options = this.settings.getOptions();
+  }
 }

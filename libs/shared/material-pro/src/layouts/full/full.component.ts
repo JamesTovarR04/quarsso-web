@@ -68,11 +68,11 @@ export class FullComponent implements OnInit, OnDestroy {
   navItems = navItems;
 
   @ViewChild('leftsidenav')
-  public sidenav: MatSidenav;
+  public sidenav!: MatSidenav;
   resView = false;
   @ViewChild('content', { static: true }) content!: MatSidenavContent;
   //get options from service
-  options = this.settings.getOptions();
+  options: AppSettings;
   private layoutChangesSubscription = Subscription.EMPTY;
   private isMobileScreen = false;
   private isContentWidthFixed = true;
@@ -199,6 +199,7 @@ export class FullComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver,
     private navService: NavService
   ) {
+    this.options = this.settings.getOptions();
     this.htmlElement = document.querySelector('html') ?? new HTMLHtmlElement();
     this.layoutChangesSubscription = this.breakpointObserver
       .observe([MOBILE_VIEW, TABLET_VIEW, MONITOR_VIEW, BELOWMONITOR])

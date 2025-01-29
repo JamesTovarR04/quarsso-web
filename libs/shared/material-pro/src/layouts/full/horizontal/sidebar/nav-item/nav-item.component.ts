@@ -16,7 +16,7 @@ import { NavItem } from '../../../vertical/sidebar/nav-item/nav-item';
 })
 export class AppHorizontalNavItemComponent {
   @Input() depth?: number;
-  @Input() item: NavItem;
+  @Input() item!: NavItem;
 
   constructor(public navService: NavService, public router: Router) {
     if (this.depth === undefined) {

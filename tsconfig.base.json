@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@quarsso/material-pro": ["libs/shared/material-pro/src/*.ts"],
+      "@quarsso/material-pro/*": ["libs/shared/material-pro/src/*.ts"],
       "accounting/Routes": [
         "apps/accounting/src/app/remote-entry/entry.routes.ts"
       ],

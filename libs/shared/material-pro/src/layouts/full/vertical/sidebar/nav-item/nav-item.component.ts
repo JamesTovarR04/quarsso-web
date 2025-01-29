@@ -18,7 +18,7 @@ import {
 } from '@angular/animations';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@quarsso/shared/material.module';
+import { MaterialModule } from '@quarsso/material-pro/material.module';
 import { TablerIconComponent } from 'angular-tabler-icons';
 
 @Component({
@@ -42,8 +42,8 @@ export class AppNavItemComponent implements OnChanges {
   disabled: boolean = false;
   twoLines: boolean = false;
   @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
-  @Input() item: NavItem;
-  @Input() depth: number;
+  @Input() item!: NavItem;
+  @Input() depth: number | undefined;
 
   constructor(public navService: NavService, public router: Router) {
     if (this.depth === undefined) {

@@ -5,11 +5,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { BrandingComponent } from '../../vertical/sidebar/branding.component';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@quarsso/shared/material.module';
-import { AppSettings } from '@quarsso/shared/config';
-import { CoreService } from '@quarsso/shared/services/core.service';
+import { MaterialModule } from '@quarsso/material-pro/material.module';
+import { AppSettings } from '@quarsso/material-pro/config';
+import { CoreService } from '@quarsso/material-pro/services/core.service';
 import { TablerIconComponent } from 'angular-tabler-icons';
-import { Language } from '@quarsso/shared/model/language';
+import { Language } from '@quarsso/material-pro/model/language';
 
 interface Notifications {
   id: number;
@@ -105,7 +105,7 @@ export class AppHorizontalHeaderComponent {
 
   @Output() optionsChange = new EventEmitter<AppSettings>();
   
-    options = this.settings.getOptions();
+    options: AppSettings;
   
     constructor(
       private settings: CoreService,
@@ -113,6 +113,7 @@ export class AppHorizontalHeaderComponent {
       public dialog: MatDialog,
       private translate: TranslateService
     ) {
+      this.options = this.settings.getOptions();
       translate.setDefaultLang('en');
     }
   
