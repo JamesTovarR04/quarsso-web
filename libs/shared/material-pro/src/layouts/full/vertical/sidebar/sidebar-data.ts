@@ -2,12 +2,25 @@ import { NavItem } from './nav-item/nav-item';
 
 export const navItems: NavItem[] = [
   {
-    navCap: 'Personal',
+    navCap: 'Modules',
   },
   {
-    displayName: 'External Link',
+    displayName: 'Budget',
+    iconName: 'calendar-dollar',
+    route: 'budget',
+  },
+  {
+    displayName: 'Accounting',
+    iconName: 'businessplan',
+    route: 'accounting',
+  },
+  {
+    navCap: 'External',
+  },
+  {
+    displayName: 'Quarsso',
     iconName: 'star',
-    route: 'https://www.google.com/',
+    route: 'https://quarsso.com/',
     external: true,
   },
 ];

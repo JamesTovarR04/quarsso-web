@@ -1,9 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@quarsso/material-pro/material.module';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'qss-nx-welcome',
-  imports: [CommonModule],
+  imports: [CommonModule, MaterialModule, RouterModule],
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *

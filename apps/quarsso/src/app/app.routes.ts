@@ -1,18 +1,44 @@
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { Route } from '@angular/router';
+import { FullComponent } from '@quarsso/material-pro/layouts/full/full.component';
+import { BlankComponent } from '@quarsso/material-pro/layouts/blank/blank.component'
 
 export const appRoutes: Route[] = [
   {
-    path: 'accounting',
-    loadChildren: () =>
-      import('accounting/Routes').then((m) => m!.remoteRoutes),
-  },
-  {
-    path: 'budget',
-    loadChildren: () => import('budget/Routes').then((m) => m!.remoteRoutes),
+    path: '',
+    component: FullComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/starter',
+        pathMatch: 'full',
+      },
+      {
+        path: 'starter',
+        title: 'Starter',
+        component: NxWelcomeComponent,
+      },
+      {
+        path: 'accounting',
+        title: 'Accounting',
+        loadChildren: () =>
+          import('accounting/Routes').then((m) => m!.remoteRoutes),
+      },
+      {
+        path: 'budget',
+        title: 'Budget',
+        loadChildren: () => import('budget/Routes').then((m) => m!.remoteRoutes),
+      },
+    ],
   },
   {
     path: '',
-    component: NxWelcomeComponent,
+    component: BlankComponent,
+    children: [
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: 'authentication/error',
   },
 ];

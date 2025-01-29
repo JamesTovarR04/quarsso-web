@@ -106,16 +106,6 @@ export class HeaderComponent {
       code: 'es',
       icon: '/assets/images/flag/icon-flag-es.svg',
     },
-    {
-      language: 'Français',
-      code: 'fr',
-      icon: '/assets/images/flag/icon-flag-fr.svg',
-    },
-    {
-      language: 'German',
-      code: 'de',
-      icon: '/assets/images/flag/icon-flag-de.svg',
-    },
   ];
 
   @Output() optionsChange = new EventEmitter<AppSettings>();
@@ -281,7 +271,7 @@ export class HeaderComponent {
       color: 'primary',
       title: 'Chat Application',
       subtitle: 'Messages & Emails',
-      link: '/',
+      link: '/accounting',
     },
     {
       id: 2,
@@ -289,7 +279,7 @@ export class HeaderComponent {
       color: 'secondary',
       title: 'Todo App',
       subtitle: 'Completed task',
-      link: '/',
+      link: '/budget',
     },
     {
       id: 3,

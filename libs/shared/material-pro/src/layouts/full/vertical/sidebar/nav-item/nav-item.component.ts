@@ -7,7 +7,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NavItem } from './nav-item';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { NavService } from '../../../../../services/nav.service';
 import {
   animate,

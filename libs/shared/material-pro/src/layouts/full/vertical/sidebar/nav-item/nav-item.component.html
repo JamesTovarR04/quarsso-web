@@ -16,7 +16,6 @@
     disabled: item.disabled
   }"
   class="menu-list-item"
-  tabindex="0"
 >
   <i-tabler
     class="routeIcon"
@@ -62,7 +61,7 @@
 <shared-nav-item
   [item]="child"
   (click)="onSubItemSelected(child)"
-  [depth]="depth + 1"
+  [depth]="depth ?? 0 + 1"
 >
 </shared-nav-item>
 } }

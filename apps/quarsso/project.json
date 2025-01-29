@@ -19,8 +19,11 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/quarsso/public"
-          }
+            "input": "libs/shared/material-pro/src/assets/images/",
+            "output": "assets/images/"
+          },
+          "apps/quarsso/src/assets",
+          "apps/quarsso/src/favicon.ico"
         ],
         "styles": [
           "apps/quarsso/src/styles.scss",
