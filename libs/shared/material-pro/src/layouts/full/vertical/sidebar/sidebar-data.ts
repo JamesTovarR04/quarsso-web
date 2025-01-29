@@ -10,22 +10,26 @@ export const navItems: NavItem[] = [
     route: 'budget',
   },
   {
-    navCap: 'Accounting',
-  },
-  {
-    displayName: 'Dashboard',
+    displayName: 'Accounting',
     iconName: 'businessplan',
-    route: 'accounting',
-  },
-  {
-    displayName: 'Reports',
-    iconName: 'report',
-    route: 'accounting/reports',
-  },
-  {
-    displayName: 'Parameters',
-    iconName: 'adjustments-horizontal',
-    route: 'accounting/parameters',
+    route: '',
+    children: [
+      {
+        displayName: 'Dashboard',
+        iconName: 'dashboard',
+        route: 'accounting',
+      },
+      {
+        displayName: 'Reports',
+        iconName: 'report',
+        route: 'accounting/reports',
+      },
+      {
+        displayName: 'Parameters',
+        iconName: 'adjustments-horizontal',
+        route: 'accounting/parameters',
+      },
+    ],
   },
   {
     navCap: 'External',
