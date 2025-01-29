@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@ang
 import { Subscription } from 'rxjs';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { filter } from 'rxjs/operators';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { navItems } from './vertical/sidebar/sidebar-data';
 import { NavService } from '../../services/nav.service';
 import { AppNavItemComponent } from './vertical/sidebar/nav-item/nav-item.component';
@@ -197,7 +197,8 @@ export class FullComponent implements OnInit, OnDestroy {
     private mediaMatcher: MediaMatcher,
     private router: Router,
     private breakpointObserver: BreakpointObserver,
-    private navService: NavService
+    private navService: NavService,
+    private route: ActivatedRoute
   ) {
     this.options = this.settings.getOptions();
     this.htmlElement = document.querySelector('html') ?? new HTMLHtmlElement();
@@ -227,6 +228,12 @@ export class FullComponent implements OnInit, OnDestroy {
           this.content.scrollTo({ top: 0 });
         }
       });
+
+    this.route.data.subscribe((data) => {
+      if (data['menu']) {
+        this.navItems = data['menu'];
+      }
+    });
   }
 
   ngOnDestroy() {

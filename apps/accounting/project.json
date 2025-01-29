@@ -19,10 +19,16 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/accounting/public"
-          }
+            "input": "libs/shared/material-pro/src/assets/images/",
+            "output": "assets/images/"
+          },
+          "apps/accounting/src/assets",
+          "apps/accounting/src/favicon.ico"
         ],
-        "styles": ["apps/accounting/src/styles.scss"],
+        "styles": [
+          "apps/accounting/src/styles.scss",
+          "libs/shared/material-pro/src/assets/scss/style.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/accounting/webpack.config.ts"

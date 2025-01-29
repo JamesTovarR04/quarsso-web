@@ -7,4 +7,4 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   selector: 'qss-accounting-accounting-entry',
   template: `<qss-accounting-nx-welcome></qss-accounting-nx-welcome>`,
 })
-export class RemoteEntryComponent {}
+export class PagesComponent {}

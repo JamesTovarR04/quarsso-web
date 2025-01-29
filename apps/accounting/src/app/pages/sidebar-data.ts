@@ -1,31 +1,23 @@
-import { NavItem } from './nav-item/nav-item';
+import { NavItem } from "@quarsso/material-pro/layouts/full/vertical/sidebar/nav-item/nav-item";
 
 export const navItems: NavItem[] = [
-  {
-    navCap: 'Modules',
-  },
-  {
-    displayName: 'Budget',
-    iconName: 'calendar-dollar',
-    route: 'budget',
-  },
   {
     navCap: 'Accounting',
   },
   {
     displayName: 'Dashboard',
-    iconName: 'businessplan',
-    route: 'accounting',
+    iconName: 'dashboard',
+    route: '',
   },
   {
     displayName: 'Reports',
     iconName: 'report',
-    route: 'accounting/reports',
+    route: 'reports',
   },
   {
     displayName: 'Parameters',
     iconName: 'adjustments-horizontal',
-    route: 'accounting/parameters',
+    route: 'parameters',
   },
   {
     navCap: 'External',
