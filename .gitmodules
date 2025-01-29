@@ -1,0 +1,3 @@
+[submodule "apps/accounting"]
+	path = apps/accounting
+	url = https://github.com/JamesTovarR04/accounting-web.git
