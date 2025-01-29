@@ -1,6 +1,19 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Quarsso</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
 <ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="budget">Budget</a></li>
-  <li><a routerLink="accounting">Accounting</a></li>
+  <li><a mat-raised-button routerLink="/">Home</a></li>
+  <li><a mat-raised-button routerLink="budget">Budget</a></li>
+  <li><a mat-raised-button routerLink="accounting">Accounting</a></li>
 </ul>
 <router-outlet></router-outlet>

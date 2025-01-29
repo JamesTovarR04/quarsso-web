@@ -22,7 +22,10 @@
             "input": "apps/quarsso/public"
           }
         ],
-        "styles": ["apps/quarsso/src/styles.scss"],
+        "styles": [
+          "apps/quarsso/src/styles.scss",
+          "apps/quarsso/public/scss/style.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/quarsso/webpack.config.ts"
