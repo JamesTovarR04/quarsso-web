@@ -3,7 +3,7 @@ import { ModuleFederationConfig } from '@nx/module-federation';
 const config: ModuleFederationConfig = {
   name: 'budget',
   exposes: {
-    './Routes': 'apps/budget/src/app/remote-entry/entry.routes.ts',
+    './Routes': 'apps/budget/src/app/pages/pages.routes.ts',
   },
 };
 

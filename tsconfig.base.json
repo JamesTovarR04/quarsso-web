@@ -19,7 +19,7 @@
       "accounting/Routes": [
         "apps/accounting/src/app/pages/pages.routes.ts"
       ],
-      "budget/Routes": ["apps/budget/src/app/remote-entry/entry.routes.ts"]
+      "budget/Routes": ["apps/budget/src/app/pages/pages.routes.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
