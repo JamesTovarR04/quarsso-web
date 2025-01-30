@@ -9,4 +9,9 @@ export const navItems: NavItem[] = [
     iconName: 'dashboard',
     route: '',
   },
+  {
+    displayName: 'Reports',
+    iconName: 'report',
+    route: 'reports',
+  },
 ];

@@ -7,7 +7,19 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Budget',
     iconName: 'calendar-dollar',
-    route: 'budget',
+    route: '',
+    children: [
+      {
+        displayName: 'Dashboard',
+        iconName: 'dashboard',
+        route: 'budget',
+      },
+      {
+        displayName: 'Reports',
+        iconName: 'report',
+        route: 'budget/reports',
+      },
+    ],
   },
   {
     displayName: 'Accounting',
