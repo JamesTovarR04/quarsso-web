@@ -1,3 +1,6 @@
 [submodule "apps/accounting"]
 	path = apps/accounting
 	url = https://github.com/JamesTovarR04/accounting-web.git
+[submodule "apps/budget"]
+	path = apps/budget
+	url = https://github.com/JamesTovarR04/budget-web.git
