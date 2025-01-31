@@ -116,23 +116,22 @@ export class HeaderComponent implements OnInit {
   showFiller = false;
 
   public selectedLanguage: Language = {
-    language: 'English',
-    code: 'en',
-    type: 'US',
-    icon: '/assets/images/flag/icon-flag-en.svg',
+    language: 'Español',
+    code: 'es',
+    icon: '/assets/images/flag/icon-flag-es-co.svg',
   };
 
   public languages: Language[] = [
+    {
+      language: 'Español',
+      code: 'es',
+      icon: '/assets/images/flag/icon-flag-es-co.svg',
+    },
     {
       language: 'English',
       code: 'en',
       type: 'US',
       icon: '/assets/images/flag/icon-flag-en.svg',
-    },
-    {
-      language: 'Español',
-      code: 'es',
-      icon: '/assets/images/flag/icon-flag-es.svg',
     },
   ];
 
@@ -161,7 +160,7 @@ export class HeaderComponent implements OnInit {
     private translate: TranslateService
   ) {
     this.options = this.settings.getOptions();
-    translate.setDefaultLang('en');
+    translate.setDefaultLang(this.options.language);
   }
 
   ngOnInit(): void {

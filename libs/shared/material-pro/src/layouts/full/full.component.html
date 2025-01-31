@@ -19,13 +19,6 @@
     (toggleMobileFilterNav)="filterNavRight.toggle()"
     (optionsChange)="receiveOptions($event)"
   ></shared-header>
-  } @else {
-  <!-- horizontal header -->
-  <shared-horizontal-header
-    (toggleMobileNav)="sidenav.toggle()"
-    (toggleMobileFilterNav)="filterNavRight.toggle()"
-    (optionsChange)="receiveOptions($event)"
-  ></shared-horizontal-header>
   }
 
   <mat-sidenav-container class="mainWrapper">
@@ -93,10 +86,6 @@
     <!-- Main Content -->
     <!-- ============================================================== -->
     <mat-sidenav-content class="contentWrapper">
-      @if(options.horizontal) {
-      <shared-horizontal-sidebar></shared-horizontal-sidebar>
-      }
-
       <main
         class="pageWrapper"
         [ngClass]="{

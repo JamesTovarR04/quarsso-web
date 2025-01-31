@@ -16,10 +16,10 @@ export const defaults: AppSettings = {
   theme: 'light',
   sidenavOpened: false,
   sidenavCollapsed: false,
-  boxed: true,
+  boxed: false,
   horizontal: false,
   cardBorder: false,
   activeTheme: 'blue_theme',
-  language: 'en-us',
+  language: 'es',
   navPos: 'side',
 };

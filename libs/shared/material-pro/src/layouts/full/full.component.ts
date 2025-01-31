@@ -11,8 +11,6 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './vertical/sidebar/sidebar.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { AppHorizontalHeaderComponent } from './horizontal/header/header.component';
-import { AppHorizontalSidebarComponent } from './horizontal/sidebar/sidebar.component';
 import { AppBreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { CustomizerComponent } from './shared/customizer/customizer.component';
 import { AppAuthBrandingComponent } from './vertical/sidebar/auth-branding.component';
@@ -54,8 +52,6 @@ interface Quicklinks {
     NgScrollbarModule,
     TablerIconComponent,
     HeaderComponent,
-    AppHorizontalHeaderComponent,
-    AppHorizontalSidebarComponent,
     AppBreadcrumbComponent,
     CustomizerComponent,
     AppAuthBrandingComponent,
