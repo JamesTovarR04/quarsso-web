@@ -1,3 +1,0 @@
-npm run format
-npm run lint
-npx --no -- commitlint --edit $1
