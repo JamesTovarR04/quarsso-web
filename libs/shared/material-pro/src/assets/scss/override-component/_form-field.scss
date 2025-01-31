@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "@angular/material" as mat;
+@use 'sass:map';
+@use '@angular/material' as mat;
 
 @include mat.form-field-overrides(
   (
@@ -25,9 +25,7 @@ html {
   }
 
   // switch
-  .mat-mdc-slide-toggle
-    .mdc-switch--selected
-    .mdc-switch__handle:has(.mdc-switch__icons) {
+  .mat-mdc-slide-toggle .mdc-switch--selected .mdc-switch__handle:has(.mdc-switch__icons) {
     margin: 0 26px;
   }
 }

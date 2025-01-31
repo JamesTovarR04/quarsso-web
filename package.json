@@ -2,7 +2,17 @@
   "name": "@quarsso/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "graph": "nx graph",
+    "start:quarsso": "nx serve quarsso",
+    "start:accounting": "nx serve accounting",
+    "start:budget": "nx serve budget",
+    "lint:quarsso": "nx lint quarsso",
+    "lint:accounting": "nx lint accounting",
+    "lint:budget": "nx lint budget",
+    "lint:material-pro": "nx lint material-pro",
+    "format:all": "nx format:write --all"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~19.1.0",

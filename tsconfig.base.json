@@ -16,9 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@quarsso/material-pro/*": ["libs/shared/material-pro/src/*.ts"],
-      "accounting/Routes": [
-        "apps/accounting/src/app/pages/pages.routes.ts"
-      ],
+      "accounting/Routes": ["apps/accounting/src/app/pages/pages.routes.ts"],
       "budget/Routes": ["apps/budget/src/app/pages/pages.routes.ts"]
     }
   },

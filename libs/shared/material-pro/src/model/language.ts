@@ -4,4 +4,3 @@ export interface Language {
   type?: string;
   icon: string;
 }
-  

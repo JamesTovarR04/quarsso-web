@@ -25,10 +25,7 @@
           "apps/quarsso/src/assets",
           "apps/quarsso/src/favicon.ico"
         ],
-        "styles": [
-          "apps/quarsso/src/styles.scss",
-          "libs/shared/material-pro/src/assets/scss/style.scss"
-        ],
+        "styles": ["apps/quarsso/src/styles.scss", "libs/shared/material-pro/src/assets/scss/style.scss"],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/quarsso/webpack.config.ts"

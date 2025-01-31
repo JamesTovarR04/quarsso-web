@@ -1,4 +1,4 @@
-@use "../variables" as *;
+@use '../variables' as *;
 
 .ngx-pagination {
   margin-bottom: 15px !important;
@@ -33,7 +33,6 @@ html .mail-sidebar {
       left: 0;
       background: $white;
     }
-
   }
 }
 

@@ -1,12 +1,4 @@
-import {
-  Component,
-  Output,
-  EventEmitter,
-  Input,
-  ViewEncapsulation,
-  Inject,
-  OnInit,
-} from '@angular/core';
+import { Component, Output, EventEmitter, Input, ViewEncapsulation, Inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { navItems } from '../sidebar/sidebar-data';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,21 +12,10 @@ import { MaterialModule } from '@quarsso/material-pro/material.module';
 import { AppSettings } from '@quarsso/material-pro/config';
 import { CoreService } from '@quarsso/material-pro/services/core.service';
 import { Language } from '@quarsso/material-pro/model/language';
-import {
-  MSAL_GUARD_CONFIG,
-  MsalGuardConfiguration,
-  MsalService,
-  MsalBroadcastService,
-} from '@azure/msal-angular';
+import { MSAL_GUARD_CONFIG, MsalGuardConfiguration, MsalService, MsalBroadcastService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
-import {
-  AuthenticationResult,
-  BrowserUtils,
-  EventMessage,
-  EventType,
-  InteractionStatus,
-} from '@azure/msal-browser';
+import { AuthenticationResult, BrowserUtils, EventMessage, EventType, InteractionStatus } from '@azure/msal-browser';
 import { filter } from 'rxjs';
 
 interface Notifications {
@@ -89,14 +70,7 @@ const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
 
 @Component({
   selector: 'mt-pro-shared-header',
-  imports: [
-    RouterModule,
-    CommonModule,
-    NgScrollbarModule,
-    TablerIconComponent,
-    MaterialModule,
-    BrandingComponent,
-  ],
+  imports: [RouterModule, CommonModule, NgScrollbarModule, TablerIconComponent, MaterialModule, BrandingComponent],
   templateUrl: './header.component.html',
   encapsulation: ViewEncapsulation.None,
 })
@@ -157,7 +131,7 @@ export class HeaderComponent implements OnInit {
     private settings: CoreService,
     private vsidenav: CoreService,
     public dialog: MatDialog,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {
     this.options = this.settings.getOptions();
     translate.setDefaultLang(this.options.language);
@@ -167,14 +141,9 @@ export class HeaderComponent implements OnInit {
     this.authService.handleRedirectObservable().subscribe();
     this.authService.instance.enableAccountStorageEvents();
     const currentPath = this.location.path();
-    this.isIframe =
-      BrowserUtils.isInIframe() &&
-      !window.opener &&
-      currentPath.indexOf('logout') < 0;
+    this.isIframe = BrowserUtils.isInIframe() && !window.opener && currentPath.indexOf('logout') < 0;
     this.msalBroadcastService.msalSubject$
-      .pipe(
-        filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS)
-      )
+      .pipe(filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS))
       .subscribe((result: EventMessage) => {
         const payload = <AuthenticationResult>result.payload;
         this.authService.instance.setActiveAccount(payload.account);
@@ -184,9 +153,8 @@ export class HeaderComponent implements OnInit {
       .pipe(
         filter(
           (msg: EventMessage) =>
-            msg.eventType === EventType.ACCOUNT_ADDED ||
-            msg.eventType === EventType.ACCOUNT_REMOVED
-        )
+            msg.eventType === EventType.ACCOUNT_ADDED || msg.eventType === EventType.ACCOUNT_REMOVED,
+        ),
       )
       .subscribe(() => {
         if (this.authService.instance.getAllAccounts().length === 0) {
@@ -197,9 +165,7 @@ export class HeaderComponent implements OnInit {
       });
 
     this.msalBroadcastService.inProgress$
-      .pipe(
-        filter((status: InteractionStatus) => status === InteractionStatus.None)
-      )
+      .pipe(filter((status: InteractionStatus) => status === InteractionStatus.None))
       .subscribe(() => {
         this.setLoginDisplay();
         this.checkAndSetActiveAccount();
@@ -224,10 +190,7 @@ export class HeaderComponent implements OnInit {
      */
     const activeAccount = this.authService.instance.getActiveAccount();
 
-    if (
-      !activeAccount &&
-      this.authService.instance.getAllAccounts().length > 0
-    ) {
+    if (!activeAccount && this.authService.instance.getAllAccounts().length > 0) {
       const accounts = this.authService.instance.getAllAccounts();
       this.authService.instance.setActiveAccount(accounts[0]);
     }

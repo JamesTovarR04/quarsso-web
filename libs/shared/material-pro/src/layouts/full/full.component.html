@@ -5,7 +5,8 @@
   'sidebarNav-mini': options.sidenavCollapsed && options.navPos !== 'top' &&  !resView,
   'sidebarNav-horizontal': options.horizontal,
   cardBorder: options.cardBorder,
-}" class="page-container"
+}"
+  class="page-container"
   [dir]="options.dir!"
 >
   <!-- ============================================================== -->
@@ -30,25 +31,16 @@
       align="start"
       #leftsidenav
       [mode]="isOver ? 'over' : 'side'"
-      [opened]="
-        options.navPos === 'side' &&
-        options.sidenavOpened &&
-        !isOver &&
-        !resView
-      "
+      [opened]="options.navPos === 'side' && options.sidenavOpened && !isOver && !resView"
       (openedChange)="onSidenavOpenedChange($event)"
       (closedStart)="onSidenavClosedStart()"
       class="sidebarNav"
     >
       <mt-pro-shared-sidebar> </mt-pro-shared-sidebar>
-      <ng-scrollbar
-        class="position-relative mini-scroll"
-        style="height: calc(100vh - 230px)"
-      >
+      <ng-scrollbar class="position-relative mini-scroll" style="height: calc(100vh - 230px)">
         <mat-nav-list class="sidebar-list">
           @for(item of navItems; track item) {
-          <mt-pro-shared-nav-item [item]="item" (notify)="sidenav.toggle()">
-          </mt-pro-shared-nav-item>
+          <mt-pro-shared-nav-item [item]="item" (notify)="sidenav.toggle()"> </mt-pro-shared-nav-item>
           }
         </mat-nav-list>
       </ng-scrollbar>
@@ -68,14 +60,10 @@
       class="sidebarNav"
     >
       <mt-pro-shared-sidebar> </mt-pro-shared-sidebar>
-      <ng-scrollbar
-        class="position-relative mini-scroll"
-        style="height: calc(100vh - 230px)"
-      >
+      <ng-scrollbar class="position-relative mini-scroll" style="height: calc(100vh - 230px)">
         <mat-nav-list class="sidebar-list">
           @for(item of navItems; track item) {
-          <mt-pro-shared-nav-item [item]="item" (notify)="sidenav.toggle()">
-          </mt-pro-shared-nav-item>
+          <mt-pro-shared-nav-item [item]="item" (notify)="sidenav.toggle()"> </mt-pro-shared-nav-item>
           }
         </mat-nav-list>
       </ng-scrollbar>
@@ -98,11 +86,7 @@
         <!-- ============================================================== -->
         <router-outlet></router-outlet>
         <div class="customizerBtn">
-          <button
-            mat-fab
-            class="bg-primary text-white"
-            (click)="customizerRight.toggle()"
-          >
+          <button mat-fab class="bg-primary text-white" (click)="customizerRight.toggle()">
             <mat-icon>settings</mat-icon>
           </button>
         </div>
@@ -112,9 +96,7 @@
     <!-- Customizer -->
     <!-- ============================================================== -->
     <mat-sidenav #customizerRight mode="over" position="end">
-      <div
-        class="p-x-16 p-y-10 d-flex align-items-center justify-content-between b-b-1"
-      >
+      <div class="p-x-16 p-y-10 d-flex align-items-center justify-content-between b-b-1">
         <h3 class="f-s-21 f-w-600">Settings</h3>
 
         <a
@@ -131,7 +113,6 @@
 
       <mt-pro-shared-customizer (optionsChange)="receiveOptions($event)"></mt-pro-shared-customizer>
     </mat-sidenav>
-    
   </mat-sidenav-container>
   <!-- ------------------------------------------------------------------
   Mobile Apps Sidebar
@@ -140,11 +121,7 @@
     <div>
       <div class="d-flex justify-content-between align-items-center p-16">
         <mt-pro-shared-auth-branding></mt-pro-shared-auth-branding>
-        <button
-          mat-icon-button
-          (click)="filterNavRight.toggle()"
-          class="d-flex justify-content-center"
-        >
+        <button mat-icon-button (click)="filterNavRight.toggle()" class="d-flex justify-content-center">
           <i-tabler name="x" class="icon-18 d-flex"></i-tabler>
         </button>
       </div>
@@ -152,26 +129,20 @@
         <div class="row">
           @for(appdd of apps; track appdd.title) {
           <div class="col-12 text-hover-primary">
-            <a
-              [routerLink]="[appdd.link]"
-              class="d-flex align-items-center text-decoration-none m-b-20"
-            >
+            <a [routerLink]="[appdd.link]" class="d-flex align-items-center text-decoration-none m-b-20">
               <span
                 class="text-{{ appdd.color }} bg-light-{{
                   appdd.color
                 }} rounded-circle icon-40 d-flex align-items-center justify-content-center"
               >
-                <i-tabler
-                  class="icon-20 d-flex"
-                  name="{{ appdd.icon }}"
-                ></i-tabler>
+                <i-tabler class="icon-20 d-flex" name="{{ appdd.icon }}"></i-tabler>
               </span>
 
               <div class="m-l-16">
                 <h5 class="f-s-14 f-w-500 m-0 textprimary hover-text lh-sm">
                   {{ appdd.title }}
                 </h5>
-                <span class=" f-s-12">{{ appdd.subtitle }}</span>
+                <span class="f-s-12">{{ appdd.subtitle }}</span>
               </div>
             </a>
           </div>

@@ -1,4 +1,4 @@
-@use "../variables" as *;
+@use '../variables' as *;
 
 .profiletimeline {
   position: relative;
@@ -203,7 +203,7 @@
 
 @media (min-width: 768px) {
   .upgrade-plan::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: -20px;

@@ -194,7 +194,7 @@ export class FullComponent implements OnInit, OnDestroy {
     private router: Router,
     private breakpointObserver: BreakpointObserver,
     private navService: NavService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     this.options = this.settings.getOptions();
     this.htmlElement = document.querySelector('html') ?? new HTMLHtmlElement();
@@ -217,13 +217,11 @@ export class FullComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Ensure `content` is available after view initialization
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        if (this.content) {
-          this.content.scrollTo({ top: 0 });
-        }
-      });
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      if (this.content) {
+        this.content.scrollTo({ top: 0 });
+      }
+    });
 
     this.route.data.subscribe((data) => {
       if (data['menu']) {

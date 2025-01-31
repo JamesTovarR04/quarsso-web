@@ -1,4 +1,4 @@
-@use "../variables" as *;
+@use '../variables' as *;
 
 .cal-event-action {
   text-decoration: none;
@@ -41,10 +41,7 @@ html {
   .cal-month-view .cal-cell-row:hover,
   .cal-month-view .cal-cell-row .cal-cell:hover,
   .cal-month-view .cal-cell.cal-has-events.cal-open,
-  .cal-week-view
-    .cal-time-events
-    .cal-day-columns:not(.cal-resize-active)
-    .cal-hour-segment:hover,
+  .cal-week-view .cal-time-events .cal-day-columns:not(.cal-resize-active) .cal-hour-segment:hover,
   .cal-week-view .cal-day-headers .cal-header:hover,
   .cal-week-view .cal-day-headers .cal-drag-over {
     background-color: var(--mat-option-focus-state-layer-color);

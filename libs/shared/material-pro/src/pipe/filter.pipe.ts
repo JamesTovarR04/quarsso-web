@@ -3,7 +3,6 @@ import { NavItem } from '../layouts/full/vertical/sidebar/nav-item/nav-item';
 
 @Pipe({ name: 'appFilter' })
 export class FilterPipe implements PipeTransform {
-  
   transform(items: NavItem[], searchText: string): NavItem[] {
     if (!items) {
       return [];

@@ -10,19 +10,11 @@ import { CoreService } from '@quarsso/material-pro/services/core.service';
   template: `
     <div class="d-flex align-items-center">
       <a [routerLink]="['/']" class="logodark">
-        <img
-          src="./assets/images/logos/dark-logo.svg"
-          class="align-middle m-2"
-          alt="logo"
-        />
+        <img src="./assets/images/logos/dark-logo.svg" class="align-middle m-2" alt="logo" />
       </a>
 
       <a [routerLink]="['/']" class="logolight">
-        <img
-          src="./assets/images/logos/light-logo.svg"
-          class="align-middle m-2"
-          alt="logo"
-        />
+        <img src="./assets/images/logos/light-logo.svg" class="align-middle m-2" alt="logo" />
       </a>
     </div>
   `,

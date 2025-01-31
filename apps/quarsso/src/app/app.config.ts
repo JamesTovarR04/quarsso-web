@@ -1,22 +1,9 @@
-import {
-  ApplicationConfig,
-  importProvidersFrom,
-  provideZoneChangeDetection,
-} from '@angular/core';
-import {
-  provideRouter,
-  withComponentInputBinding,
-  withInMemoryScrolling,
-} from '@angular/router';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { provideTablerIcons } from 'angular-tabler-icons';
 import * as tablerIcons from 'angular-tabler-icons/icons';
-import {
-  HTTP_INTERCEPTORS,
-  HttpClient,
-  provideHttpClient,
-  withInterceptorsFromDi,
-} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@quarsso/material-pro/material.module';
@@ -53,7 +40,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
         anchorScrolling: 'enabled',
       }),
-      withComponentInputBinding()
+      withComponentInputBinding(),
     ),
     provideTablerIcons(tablerIcons),
     provideHttpClient(withInterceptorsFromDi()),
@@ -69,7 +56,7 @@ export const appConfig: ApplicationConfig = {
           useFactory: httpLoaderFactory,
           deps: [HttpClient],
         },
-      })
+      }),
     ),
     {
       provide: HTTP_INTERCEPTORS,

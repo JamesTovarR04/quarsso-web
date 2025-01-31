@@ -1,5 +1,5 @@
-@use "sass:meta";
-@use "../variables" as *;
+@use 'sass:meta';
+@use '../variables' as *;
 
 .dark-theme {
   //   typography
@@ -43,9 +43,7 @@
   }
 
   // fill
-  .customizer-button-group
-    .mat-button-toggle-appearance-standard.mat-button-toggle-checked
-    i-tabler.fill-icon {
+  .customizer-button-group .mat-button-toggle-appearance-standard.mat-button-toggle-checked i-tabler.fill-icon {
     fill: var(--mat-sys-primary-fixed-dim);
   }
 }

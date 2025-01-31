@@ -1,12 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import {
-  Router,
-  NavigationEnd,
-  ActivatedRoute,
-  Data,
-  RouterModule,
-} from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute, Data, RouterModule } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 
 import {
@@ -68,9 +62,9 @@ export class AppBreadcrumbComponent {
     private settings: CoreService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title
+    private titleService: Title,
   ) {
-    this.options = this.settings.getOptions()
+    this.options = this.settings.getOptions();
     this.breadcrumbOption = {
       series: [
         {
@@ -231,7 +225,7 @@ export class AppBreadcrumbComponent {
             route = route.firstChild;
           }
           return route;
-        })
+        }),
       )
       .pipe(filter((route) => route.outlet === 'primary'))
       .pipe(mergeMap((route) => route.data))

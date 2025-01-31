@@ -1,7 +1,4 @@
-import {
-  MsalInterceptorConfiguration,
-  MsalGuardConfiguration,
-} from '@azure/msal-angular';
+import { MsalInterceptorConfiguration, MsalGuardConfiguration } from '@azure/msal-angular';
 import {
   IPublicClientApplication,
   PublicClientApplication,
@@ -18,8 +15,7 @@ export function msalInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
       clientId: 'f58215a8-77d8-4f48-b0f5-36013b7e3aa7', //environment.msalConfig.auth.clientId,
-      authority:
-        'https://login.microsoftonline.com/c5508734-a3bb-4b43-978d-b6ac685fc2a5/', //environment.msalConfig.auth.authority,
+      authority: 'https://login.microsoftonline.com/c5508734-a3bb-4b43-978d-b6ac685fc2a5/', //environment.msalConfig.auth.authority,
       redirectUri: '/',
       postLogoutRedirectUri: '/',
     },
@@ -38,13 +34,9 @@ export function msalInstanceFactory(): IPublicClientApplication {
 
 export function msalInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
-  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', [
-    'User.Read',
-  ]);
+  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['User.Read']);
 
-  protectedResourceMap.set(`http://localhost:4200/api/*`, [
-    `api://7376dc7a-eaf6-4369-8065-10cf40bb2d01/.default`,
-  ]);
+  protectedResourceMap.set(`http://localhost:4200/api/*`, [`api://7376dc7a-eaf6-4369-8065-10cf40bb2d01/.default`]);
 
   return {
     interactionType: InteractionType.Redirect,
