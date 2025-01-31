@@ -14,7 +14,7 @@ export function loggerCallback(logLevel: LogLevel, message: string) {
   console.log(logLevel, message);
 }
 
-export function MSALInstanceFactory(): IPublicClientApplication {
+export function msalInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
       clientId: 'f58215a8-77d8-4f48-b0f5-36013b7e3aa7', //environment.msalConfig.auth.clientId,
@@ -36,7 +36,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
   });
 }
 
-export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
+export function msalInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
   protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', [
     'User.Read',
@@ -52,7 +52,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   };
 }
 
-export function MSALGuardConfigFactory(): MsalGuardConfiguration {
+export function msalGuardConfigFactory(): MsalGuardConfiguration {
   return {
     interactionType: InteractionType.Redirect,
     authRequest: {

@@ -13,7 +13,7 @@ import { CoreService } from '@quarsso/material-pro/services/core.service';
 import { TablerIconComponent } from 'angular-tabler-icons';
 
 @Component({
-    selector: 'shared-customizer',
+    selector: 'mt-pro-shared-customizer',
     imports: [
         TablerIconComponent,
         MaterialModule,

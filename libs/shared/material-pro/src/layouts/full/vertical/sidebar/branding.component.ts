@@ -4,7 +4,7 @@ import { AppSettings } from '@quarsso/material-pro/config';
 import { CoreService } from '@quarsso/material-pro/services/core.service';
 
 @Component({
-  selector: 'shared-branding',
+  selector: 'mt-pro-shared-branding',
   standalone: true,
   imports: [RouterModule],
   template: `

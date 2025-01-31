@@ -48,7 +48,7 @@ export interface BreadcrumbOption {
 }
 
 @Component({
-  selector: 'shared-breadcrumb',
+  selector: 'mt-pro-shared-breadcrumb',
   imports: [NgApexchartsModule, RouterModule],
   templateUrl: './breadcrumb.component.html',
   styleUrls: [],

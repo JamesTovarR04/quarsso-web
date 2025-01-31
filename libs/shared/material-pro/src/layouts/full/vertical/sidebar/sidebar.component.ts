@@ -3,7 +3,7 @@ import { MaterialModule } from '@quarsso/material-pro/material.module';
 import { TablerIconComponent } from 'angular-tabler-icons';
 
 @Component({
-  selector: 'shared-sidebar',
+  selector: 'mt-pro-shared-sidebar',
   imports: [TablerIconComponent, MaterialModule],
   templateUrl: './sidebar.component.html',
 })

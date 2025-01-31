@@ -12,13 +12,13 @@
   <!-- VerticalHeader -->
   <!-- ============================================================== -->
   @if(!options.horizontal) {
-  <shared-header
+  <mt-pro-shared-header
     [showToggle]="!isOver"
     (toggleCollapsed)="toggleCollapsed()"
     (toggleMobileNav)="sidenav.toggle()"
     (toggleMobileFilterNav)="filterNavRight.toggle()"
     (optionsChange)="receiveOptions($event)"
-  ></shared-header>
+  ></mt-pro-shared-header>
   }
 
   <mat-sidenav-container class="mainWrapper">
@@ -40,15 +40,15 @@
       (closedStart)="onSidenavClosedStart()"
       class="sidebarNav"
     >
-      <shared-sidebar> </shared-sidebar>
+      <mt-pro-shared-sidebar> </mt-pro-shared-sidebar>
       <ng-scrollbar
         class="position-relative mini-scroll"
         style="height: calc(100vh - 230px)"
       >
         <mat-nav-list class="sidebar-list">
           @for(item of navItems; track item) {
-          <shared-nav-item [item]="item" (notify)="sidenav.toggle()">
-          </shared-nav-item>
+          <mt-pro-shared-nav-item [item]="item" (notify)="sidenav.toggle()">
+          </mt-pro-shared-nav-item>
           }
         </mat-nav-list>
       </ng-scrollbar>
@@ -67,15 +67,15 @@
       (closedStart)="onSidenavClosedStart()"
       class="sidebarNav"
     >
-      <shared-sidebar> </shared-sidebar>
+      <mt-pro-shared-sidebar> </mt-pro-shared-sidebar>
       <ng-scrollbar
         class="position-relative mini-scroll"
         style="height: calc(100vh - 230px)"
       >
         <mat-nav-list class="sidebar-list">
           @for(item of navItems; track item) {
-          <shared-nav-item [item]="item" (notify)="sidenav.toggle()">
-          </shared-nav-item>
+          <mt-pro-shared-nav-item [item]="item" (notify)="sidenav.toggle()">
+          </mt-pro-shared-nav-item>
           }
         </mat-nav-list>
       </ng-scrollbar>
@@ -92,7 +92,7 @@
           maxWidth: options.boxed
         }"
       >
-        <shared-breadcrumb></shared-breadcrumb>
+        <mt-pro-shared-breadcrumb></mt-pro-shared-breadcrumb>
         <!-- ============================================================== -->
         <!-- Outlet -->
         <!-- ============================================================== -->
@@ -129,7 +129,7 @@
         </a>
       </div>
 
-      <shared-customizer (optionsChange)="receiveOptions($event)"></shared-customizer>
+      <mt-pro-shared-customizer (optionsChange)="receiveOptions($event)"></mt-pro-shared-customizer>
     </mat-sidenav>
     
   </mat-sidenav-container>
@@ -139,7 +139,7 @@
   <mat-drawer #filterNavRight mode="over" position="end" class="filter-sidebar">
     <div>
       <div class="d-flex justify-content-between align-items-center p-16">
-        <shared-auth-branding></shared-auth-branding>
+        <mt-pro-shared-auth-branding></mt-pro-shared-auth-branding>
         <button
           mat-icon-button
           (click)="filterNavRight.toggle()"

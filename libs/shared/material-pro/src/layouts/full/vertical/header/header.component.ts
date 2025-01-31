@@ -88,7 +88,7 @@ type DetailType = {
 const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
 
 @Component({
-  selector: 'shared-header',
+  selector: 'mt-pro-shared-header',
   imports: [
     RouterModule,
     CommonModule,
@@ -176,7 +176,7 @@ export class HeaderComponent implements OnInit {
         filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS)
       )
       .subscribe((result: EventMessage) => {
-        const payload = result.payload as AuthenticationResult;
+        const payload = <AuthenticationResult>result.payload;
         this.authService.instance.setActiveAccount(payload.account);
       });
 
@@ -188,7 +188,7 @@ export class HeaderComponent implements OnInit {
             msg.eventType === EventType.ACCOUNT_REMOVED
         )
       )
-      .subscribe((result: EventMessage) => {
+      .subscribe(() => {
         if (this.authService.instance.getAllAccounts().length === 0) {
           window.location.pathname = '/';
         } else {
@@ -222,13 +222,13 @@ export class HeaderComponent implements OnInit {
      * To use active account set here, subscribe to inProgress$ first in your component
      * Note: Basic usage demonstrated. Your app may require more complicated account selection logic
      */
-    let activeAccount = this.authService.instance.getActiveAccount();
+    const activeAccount = this.authService.instance.getActiveAccount();
 
     if (
       !activeAccount &&
       this.authService.instance.getAllAccounts().length > 0
     ) {
-      let accounts = this.authService.instance.getAllAccounts();
+      const accounts = this.authService.instance.getAllAccounts();
       this.authService.instance.setActiveAccount(accounts[0]);
     }
   }
@@ -509,7 +509,7 @@ export class HeaderComponent implements OnInit {
 }
 
 @Component({
-  selector: 'shared-search-dialog',
+  selector: 'mt-pro-shared-search-dialog',
   imports: [RouterModule, MaterialModule, TablerIconComponent, FormsModule],
   templateUrl: 'search-dialog.component.html',
 })

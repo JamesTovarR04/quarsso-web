@@ -58,10 +58,10 @@
 
 <!-- children -->
 @if(expanded) { @for(child of item.children; track child) {
-<shared-nav-item
+<mt-pro-shared-nav-item
   [item]="child"
   (click)="onSubItemSelected(child)"
   [depth]="depth ?? 0 + 1"
 >
-</shared-nav-item>
+</mt-pro-shared-nav-item>
 } }

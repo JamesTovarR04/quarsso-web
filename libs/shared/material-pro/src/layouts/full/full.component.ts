@@ -42,7 +42,7 @@ interface Quicklinks {
 }
 
 @Component({
-  selector: 'shared-full',
+  selector: 'mt-pro-shared-full',
   imports: [
     RouterModule,
     AppNavItemComponent,

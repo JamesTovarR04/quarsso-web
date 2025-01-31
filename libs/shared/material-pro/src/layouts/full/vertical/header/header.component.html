@@ -1,5 +1,5 @@
 <mat-toolbar class="topbar gap-8">
-  <shared-branding></shared-branding>
+  <mt-pro-shared-branding></mt-pro-shared-branding>
   <!-- --------------------------------------------------------------- -->
   <!-- Desktop Menu -->
   @if(showToggle) {
@@ -458,6 +458,7 @@
       <a
         class="p-8 text-decoration-none d-block text-hover-primary"
         (click)="logout()"
+        (keyup)="logout()"
       >
         <div class="d-flex align-items-center">
           <h5 class="f-s-14 f-w-500 m-0 textprimary mat-subtitle-1 hover-text">

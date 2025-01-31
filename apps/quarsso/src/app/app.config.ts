@@ -34,9 +34,9 @@ import {
   MsalService,
 } from '@azure/msal-angular';
 import {
-  MSALGuardConfigFactory,
-  MSALInstanceFactory,
-  MSALInterceptorConfigFactory,
+  msalGuardConfigFactory,
+  msalInstanceFactory,
+  msalInterceptorConfigFactory,
 } from '@quarsso/material-pro/msal.config';
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -78,15 +78,15 @@ export const appConfig: ApplicationConfig = {
     },
     {
       provide: MSAL_INSTANCE,
-      useFactory: MSALInstanceFactory,
+      useFactory: msalInstanceFactory,
     },
     {
       provide: MSAL_GUARD_CONFIG,
-      useFactory: MSALGuardConfigFactory,
+      useFactory: msalGuardConfigFactory,
     },
     {
       provide: MSAL_INTERCEPTOR_CONFIG,
-      useFactory: MSALInterceptorConfigFactory,
+      useFactory: msalInterceptorConfigFactory,
     },
     MsalService,
     MsalGuard,

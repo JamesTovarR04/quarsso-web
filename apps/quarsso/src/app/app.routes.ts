@@ -25,14 +25,14 @@ export const appRoutes: Route[] = [
         title: 'Accounting',
         canActivate: [MsalGuard],
         loadChildren: () =>
-          import('accounting/Routes').then((m) => m!.remoteRoutes),
+          import('accounting/Routes').then((m) => m.remoteRoutes),
       },
       {
         path: 'budget',
         title: 'Budget',
         canActivate: [MsalGuard],
         loadChildren: () =>
-          import('budget/Routes').then((m) => m!.remoteRoutes),
+          import('budget/Routes').then((m) => m.remoteRoutes),
       },
     ],
   },

@@ -2,7 +2,7 @@
   "name": "material-pro",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/material-pro/src",
-  "prefix": "lib",
+  "prefix": "mt-pro",
   "projectType": "library",
   "tags": [],
   "targets": {

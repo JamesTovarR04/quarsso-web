@@ -6,7 +6,7 @@ import { AppSettings } from '@quarsso/material-pro/config';
 import { MaterialModule } from '@quarsso/material-pro/material.module';
 
 @Component({
-  selector: 'shared-blank',
+  selector: 'mt-pro-shared-blank',
   templateUrl: './blank.component.html',
   styleUrls: [],
   imports: [RouterOutlet, MaterialModule, CommonModule],

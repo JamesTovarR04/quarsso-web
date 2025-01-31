@@ -7,7 +7,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { NavItem } from './nav-item';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { NavService } from '../../../../../services/nav.service';
 import {
   animate,
@@ -22,7 +22,7 @@ import { MaterialModule } from '@quarsso/material-pro/material.module';
 import { TablerIconComponent } from 'angular-tabler-icons';
 
 @Component({
-    selector: 'shared-nav-item',
+    selector: 'mt-pro-shared-nav-item',
     imports: [TranslateModule, TablerIconComponent, MaterialModule, CommonModule],
     templateUrl: './nav-item.component.html',
     styleUrls: [],
