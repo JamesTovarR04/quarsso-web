@@ -4,6 +4,8 @@ import {
   EventEmitter,
   Input,
   ViewEncapsulation,
+  Inject,
+  OnInit,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { navItems } from '../sidebar/sidebar-data';
@@ -18,6 +20,22 @@ import { MaterialModule } from '@quarsso/material-pro/material.module';
 import { AppSettings } from '@quarsso/material-pro/config';
 import { CoreService } from '@quarsso/material-pro/services/core.service';
 import { Language } from '@quarsso/material-pro/model/language';
+import {
+  MSAL_GUARD_CONFIG,
+  MsalGuardConfiguration,
+  MsalService,
+  MsalBroadcastService,
+} from '@azure/msal-angular';
+import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
+import {
+  AuthenticationResult,
+  BrowserUtils,
+  EventMessage,
+  EventType,
+  InteractionStatus,
+} from '@azure/msal-browser';
+import { filter } from 'rxjs';
 
 interface Notifications {
   id: number;
@@ -59,6 +77,16 @@ interface Quicklinks {
   link: string;
 }
 
+type DetailType = {
+  givenName?: string;
+  displayName?: string;
+  jobTitle?: string;
+  mail?: string;
+  photo?: string;
+};
+
+const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
+
 @Component({
   selector: 'shared-header',
   imports: [
@@ -67,12 +95,12 @@ interface Quicklinks {
     NgScrollbarModule,
     TablerIconComponent,
     MaterialModule,
-    BrandingComponent
+    BrandingComponent,
   ],
   templateUrl: './header.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   @Input() showToggle = true;
   @Input() toggleChecked = false;
   @Output() toggleMobileNav = new EventEmitter<void>();
@@ -112,7 +140,21 @@ export class HeaderComponent {
 
   options: AppSettings;
 
+  isIframe = false;
+  loginDisplay = false;
+  status: boolean = false;
+  profile: DetailType = {
+    givenName: '',
+    photo: '/assets/images/profile/profile.png',
+    mail: '',
+  };
+
   constructor(
+    @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
+    private authService: MsalService,
+    private msalBroadcastService: MsalBroadcastService,
+    private location: Location,
+    private http: HttpClient,
     private settings: CoreService,
     private vsidenav: CoreService,
     public dialog: MatDialog,
@@ -120,6 +162,104 @@ export class HeaderComponent {
   ) {
     this.options = this.settings.getOptions();
     translate.setDefaultLang('en');
+  }
+
+  ngOnInit(): void {
+    this.authService.handleRedirectObservable().subscribe();
+    this.authService.instance.enableAccountStorageEvents();
+    const currentPath = this.location.path();
+    this.isIframe =
+      BrowserUtils.isInIframe() &&
+      !window.opener &&
+      currentPath.indexOf('logout') < 0;
+    this.msalBroadcastService.msalSubject$
+      .pipe(
+        filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS)
+      )
+      .subscribe((result: EventMessage) => {
+        const payload = result.payload as AuthenticationResult;
+        this.authService.instance.setActiveAccount(payload.account);
+      });
+
+    this.msalBroadcastService.msalSubject$
+      .pipe(
+        filter(
+          (msg: EventMessage) =>
+            msg.eventType === EventType.ACCOUNT_ADDED ||
+            msg.eventType === EventType.ACCOUNT_REMOVED
+        )
+      )
+      .subscribe((result: EventMessage) => {
+        if (this.authService.instance.getAllAccounts().length === 0) {
+          window.location.pathname = '/';
+        } else {
+          this.setLoginDisplay();
+        }
+      });
+
+    this.msalBroadcastService.inProgress$
+      .pipe(
+        filter((status: InteractionStatus) => status === InteractionStatus.None)
+      )
+      .subscribe(() => {
+        this.setLoginDisplay();
+        this.checkAndSetActiveAccount();
+      });
+  }
+
+  setLoginDisplay() {
+    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+    this.status = this.loginDisplay;
+    if (this.status) {
+      if (typeof window !== 'undefined') {
+        this.getProfile();
+      }
+    }
+  }
+
+  checkAndSetActiveAccount() {
+    /**
+     * If no active account set but there are accounts signed in, sets first account to active account
+     * To use active account set here, subscribe to inProgress$ first in your component
+     * Note: Basic usage demonstrated. Your app may require more complicated account selection logic
+     */
+    let activeAccount = this.authService.instance.getActiveAccount();
+
+    if (
+      !activeAccount &&
+      this.authService.instance.getAllAccounts().length > 0
+    ) {
+      let accounts = this.authService.instance.getAllAccounts();
+      this.authService.instance.setActiveAccount(accounts[0]);
+    }
+  }
+
+  getProfile() {
+    this.http.get(GRAPH_ENDPOINT).subscribe((profile) => {
+      this.profile = profile;
+      this.profile.photo = '/assets/images/profile/user-1.jpg';
+      this.getPhoto();
+    });
+  }
+
+  getPhoto() {
+    this.http
+      .get(`${GRAPH_ENDPOINT}/photo/$value`, {
+        responseType: 'blob',
+      })
+      .subscribe((photoBlob) => {
+        this.profile.photo = URL.createObjectURL(photoBlob);
+      });
+  }
+
+  logout(popup?: boolean) {
+    if (popup) {
+      this.authService.logoutPopup({
+        mainWindowRedirectUri: '/',
+      });
+    } else {
+      this.authService.logoutRedirect();
+    }
   }
 
   openDialog() {
@@ -257,11 +397,11 @@ export class HeaderComponent {
       title: ' Account Settings',
       link: '/',
     },
-    {
-      id: 6,
-      title: 'Sign Out',
-      link: '/authentication/login',
-    },
+    // {
+    //   id: 6,
+    //   title: 'Sign Out',
+    //   link: '/authentication/login',
+    // },
   ];
 
   apps: Apps[] = [

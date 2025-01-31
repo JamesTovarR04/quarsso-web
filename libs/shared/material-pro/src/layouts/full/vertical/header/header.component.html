@@ -248,7 +248,7 @@
       >
         <img
           [alt]="selectedLanguage.language"
-          src="/assets/images/profile/user-1.jpg"
+          [src]="profile.photo"
           class="rounded-circle icon-30 object-cover profile-dd d-flex align-items-center justify-content-center"
           width="30"
           height="30"
@@ -408,7 +408,7 @@
   >
     <img
       [alt]="selectedLanguage.language"
-      src="/assets/images/profile/user-1.jpg"
+      [src]="profile.photo"
       class="rounded-circle icon-30 object-cover profile-dd d-flex align-items-center justify-content-center m-l-2 m-t-2"
       width="30"
       height="30"
@@ -422,17 +422,17 @@
       <div class="d-flex align-items-center">
         <img
           [alt]="selectedLanguage.language"
-          src="/assets/images/profile/user-1.jpg"
+          [src]="profile.photo"
           class="rounded-circle"
           width="50"
           height="50"
         />
         <div class="m-l-16">
           <h6 class="f-s-14 f-w-600 m-0 d-flex align-items-center">
-            Markarn Doe
+            {{ profile.givenName }}
             <span class="f-s-14 d-block text-success m-l-4">Pro</span>
           </h6>
-          <span>markrarn&#64;wrappixel.com</span>
+          <span>{{ profile.mail }}</span>
         </div>
       </div>
     </div>
@@ -455,6 +455,16 @@
         </div>
       </a>
       }
+      <a
+        class="p-8 text-decoration-none d-block text-hover-primary"
+        (click)="logout()"
+      >
+        <div class="d-flex align-items-center">
+          <h5 class="f-s-14 f-w-500 m-0 textprimary mat-subtitle-1 hover-text">
+            Sign Out
+          </h5>
+        </div>
+      </a>
     </div>
   </mat-menu>
 </mat-toolbar>
